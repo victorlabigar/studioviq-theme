@@ -1,0 +1,48 @@
+@import "variables.scss";
+
+.home {
+
+	#recent-cases {
+		.wrap {
+			.centered-text {
+				h2 {
+					//font-family: $font-family-opensans;
+					font-family: $font-family-opensans;
+					font-weight: 400;
+					color: white;
+					//text-transform: uppercase;
+					
+				}
+			}
+			
+			&.case-grid {
+				min-height: 0;
+				//margin-bottom: 100px;
+				padding-top: 0!important;
+				
+				.case {
+					float: left;
+					position: relative;
+					-webkit-transition: opacity .8s ease;
+					-moz-transition: opacity .8s ease;
+					-o-transition: opacity .8s ease;
+					transition: opacity .8s ease;
+					-webkit-transform: translateZ(0) scale(1,1);
+				
+					img { @extend .fluidimg; }
+				} // end case
+				
+				@include respond(m){
+					.case {
+						//float: none;
+						
+						&.half {
+							width: 100%;
+						}
+					}
+				}
+			} // end case-grid
+		} // end wrap
+	} // end recent cases
+
+}

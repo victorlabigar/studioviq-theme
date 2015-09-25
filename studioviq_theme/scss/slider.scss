@@ -1,0 +1,120 @@
+@import "variables.scss";
+
+
+div#werkwijze-slider {
+	height: auto;
+	position: relative;
+	min-height: 450px;
+	
+	.item {
+		margin: 0 auto;
+		padding: 0 60px;
+		width: 80%;
+		
+		@include respond(s) {
+			padding: 0 20px;
+		}
+		
+		.media-wrap {
+			float: left;
+			margin-right: 55px;
+			width: 220px;
+			height: 200px;
+			display: table-cell; 
+			vertical-align: middle;
+			text-align: center;
+			
+			@include respond(ll) {
+				float: left;
+				width: 20%;
+				display: block;
+				height: 100px;
+				
+				img {
+					display: inline;
+					width: 90%;
+				}
+			}
+			
+			@include respond(l){
+				float: none;
+				width: 100%;
+				display: block;
+				height: 100px;
+				
+				img {
+					display: inline;
+					width: 20%;
+				}
+			}
+			
+			@include respond(s) {
+				img {
+					width: 35%;
+				}
+			}
+
+			img {
+				//display: block;
+				margin-top: 10px;
+				margin-left: 10px;
+			}
+		}
+		
+		.wayofwork-wrap {
+			float: left;
+			width: 65%;
+			
+			@include respond(s) {
+				p {
+					font-size: 14px;
+					line-height: 22px;
+				}
+			}
+			
+			@include respond(l){
+				float: none;
+				text-align: center;
+				width: 100%;
+			}
+		}
+	}
+	
+	.owl-buttons {
+		position: absolute;
+		top: 61px;
+		width: 100%;
+		
+		@include respond(m){
+			top: 130px;
+		}
+		
+		@include respond(s) {
+			display: none;
+		}
+		
+		.owl-prev {
+			position: absolute;
+			left: 0;
+			background: url(img/slider-prev-arrow.png) top center no-repeat;
+			width: 16px;
+			height: 26px;
+			
+			&:hover {
+				background: url(img/slider-prev-arrow.png) bottom center no-repeat;
+			}
+		}
+		
+		.owl-next {
+			position: absolute;
+			right: 0;
+			background: url(img/slider-next-arrow.png) top center no-repeat;
+			width: 16px;
+			height: 26px;
+			
+			&:hover {
+				background: url(img/slider-next-arrow.png) bottom center no-repeat;
+			}
+		}
+	}
+}

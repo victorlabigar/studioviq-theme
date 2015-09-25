@@ -1,0 +1,200 @@
+@import "variables.scss";
+
+footer {
+	
+	&.dark-bg {
+		width: 100%;
+		margin: auto;
+		height: 390px;
+		position: relative;
+		background: url(img/texture.darkgrey.png) repeat 0 0;
+		clear: both;
+		
+		.wrap {
+			padding: 70px 75px 50px;
+		}
+		
+		h2 {
+			font-family: $font-family-opensans;
+			font-weight: 600;
+			font-size: 15px;
+			color: white;
+			line-height: 25px;
+			text-transform: uppercase;
+		}
+		
+		ul.footer-nav {
+			list-style: none;
+			margin: 50px 0 10px;
+			padding: 0;
+			li {
+				@include inline-block-hack();
+				margin-right: 16px;
+				a {
+					color: #ccc;
+					font-size: 13px;
+					font-family: $font-family-opensans;
+					font-weight: 400; 
+					text-transform: capitalize;
+				}
+			}
+		}
+		
+		
+		.address-wrap {
+			p {
+				font-size: 13px;
+				color: #ccc;
+				
+				span {
+					font-weight: 600;
+					color: white;
+				}
+			}
+		}
+		
+		
+		.social-news {
+			margin: 50px 0 10px;
+		}
+		
+		
+		.copyright{
+			width: 100%;
+			span {
+				font-family: $font-family-opensans;
+				font-weight: 300; 
+				font-size: 13px;
+				line-height: 25px;
+				color: white;
+				@include inline-block-hack();
+				
+				@include respond(s){  
+					margin: 0 20px 0 0;
+				}
+			}
+				
+			a {
+				font-family: $font-family-opensans;
+				font-weight: 300; 
+				font-size: 13px;
+				line-height: 25px;
+				color: white;
+				@include inline-block-hack();
+				margin: 0 0 0 50px;
+				
+				@include respond(s){ 
+					margin: 0 20px 0 0;
+				}
+			}
+		} // end copyright
+			
+			
+		.get-in-touch {
+			h2 {
+				font-size: 18px;
+			}
+	
+			p {
+				color: white;
+				font-family: $font-family-opensans;
+				font-weight: 300; 
+				line-height: 25px;
+				font-size: 14px;
+			}
+		} // getin touch
+		
+			
+		.social-news {
+			ul {
+				li {
+					@include inline-block-hack();
+					width: 46px;
+					height: 51px;
+					a {
+						color: white;
+						font-family: $font-family-opensans;
+						font-weight: 300; 
+						line-height: 25px;
+						font-size: 14px;
+						
+						&.icon {
+							display: block;
+							width: 46px;
+							height: 51px;
+							//background-position: center top;
+							
+							&.fb-icon {
+								background: url(img/socialmedia-footer-sprite.png) 0 -54px  no-repeat;
+								position: relative;
+								span {
+									position: absolute;
+									top:0;
+									left: 0;
+									bottom: 0;
+									right: 0;
+									background: url(img/socialmedia-footer-sprite.png) 0 0 no-repeat ;
+									opacity: 0;
+									-webkit-transition: opacity 0.3s;
+									-moz-transition:    opacity 0.3s;
+									-o-transition:      opacity 0.3s;
+									display: block;
+									width: 46px;
+									height: 51px;
+								}
+								&:hover span {
+									opacity: 1;
+								}
+							}
+							&.tw-icon {
+								background: url(img/socialmedia-footer-sprite.png) -51px -54px  no-repeat;
+								position: relative;
+								span {
+									position: absolute;
+									top:0;
+									left: 0;
+									bottom: 0;
+									right: 0;
+									background: url(img/socialmedia-footer-sprite.png) -51px -1px no-repeat ;
+									opacity: 0;
+									-webkit-transition: opacity 0.3s;
+									-moz-transition:    opacity 0.3s;
+									-o-transition:      opacity 0.3s;
+									display: block;
+									width: 46px;
+									height: 51px;
+								}
+								&:hover span {
+									opacity: 1;
+								}
+							}
+							&.li-icon {
+								background: url(img/socialmedia-footer-sprite.png) -102px -54px  no-repeat;
+								position: relative;
+								span {
+									position: absolute;
+									top:0;
+									left: 0;
+									bottom: 0;
+									right: 0;
+									background: url(img/socialmedia-footer-sprite.png) -102px -1px no-repeat ;
+									opacity: 0;
+									-webkit-transition: opacity 0.3s;
+									-moz-transition:    opacity 0.3s;
+									-o-transition:      opacity 0.3s;
+									display: block;
+									width: 46px;
+									height: 51px;
+								}
+								&:hover span {
+									opacity: 1;
+								}
+							}
+						} // end icon
+					} // end a
+				}// end li
+			} // end ul
+		} // end social-news
+		
+	} //dark-bg
+} //footer

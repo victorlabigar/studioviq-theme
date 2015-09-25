@@ -1,0 +1,228 @@
+// Variables
+// =======================================================
+
+@font-face {
+  font-family: 'jurabold';
+  src: url('webfonts/jura-bold-webfont.eot');
+  src: url('webfonts/jura-bold-webfont.eot?#iefix') format('embedded-opentype'),
+       url('webfonts/jura-bold-webfont.woff') format('woff'),
+       url('webfonts/jura-bold-webfont.ttf') format('truetype'),
+       url('webfonts/jura-bold-webfont.svg#jurabold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
+@font-face {
+  font-family: 'juraregular';
+  src: url('webfonts/jura-regular-webfont.eot');
+  src: url('webfonts/jura-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('webfonts/jura-regular-webfont.woff') format('woff'),
+       url('webfonts/jura-regular-webfont.ttf') format('truetype'),
+       url('webfonts/jura-regular-webfont.svg#juraregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* Basis groottes */
+	$base-font-size               : 16; 
+	$base-line-height             : 1.5;
+	$mobile-line-height			      : 1.4;
+	$mobile-font-size			        : 15;
+
+
+	/* Breakpoints */
+	$xs							  : 320;
+	$ss							  : 400;
+	$s							  : 600;
+	$m							  : 768;
+	$ms							  : 991;
+	$l							  : 1024;
+	$ll							  : 1132;
+	$xl							  : 1400;
+	$xxl						  : 1600;
+	$xxxl             : 1800;
+
+	/* Lettertypes */
+	$font-family-jura             : 'juraregular', Arial, Verdana, Tahoma, sans-serif;
+	$font-family-jurabold         : 'jurabold', Arial, Verdana, Tahoma, sans-serif;
+	$font-family-opensans         : 'Open Sans', sans-serif;
+	$webfont-a										: 'Montserrat', sans-serif;
+	$webfont-b										: 'Merriweather', serif;
+ 
+	$normal            			: 400;
+	$bold			              : 600;
+
+	/* Kleurenschema */
+	$white						  : #ffffff;
+	$blue						  	: #266294;
+	$lightblue					: #85CFF6;
+	$gray						    : #272727;
+	$darkgray					  : #a5a5a5;
+	$lightgray					: #e4eae8;
+	$brightblue         : #2a9bb2;
+	$brightgreen        : #49CC8D;
+	$darkgreen        	: #49CC8D;
+
+	$color-text					  : $gray;
+	$color-heading				: $blue;
+	$color-link					  : $gray;
+	$color-link-hover			: $gray;
+	$color-background			: $white;
+	
+	
+	
+
+// MIXINS 
+// ==========================================================
+
+@mixin respond( $media ) 
+	{
+		@if $media == xs
+		{
+			@media only screen and (max-width: #{$xs}px) { @content; }
+		}
+		
+		@if $media == ss
+		{
+			@media only screen and (max-width: #{$ss}px) { @content; }
+		}
+		
+		@if $media == s
+		{
+			@media only screen and (max-width: #{$s}px) { @content; }
+		}
+		
+		@if $media == m
+		{
+			@media only screen and (max-width: #{$m}px) { @content; }
+		}
+		
+		@if $media == ms
+		{
+			@media only screen and (max-width: #{$ms}px) { @content; }
+		}
+		
+		@if $media == l
+		{
+			@media only screen and (max-width: #{$l}px) { @content; }
+		}
+		
+		@if $media == ll
+		{
+			@media only screen and (max-width: #{$ll}px) { @content; }
+		}
+		
+		@if $media == xl
+		{
+			@media only screen and (min-width: #{$xl}px) { @content; }
+		}
+		
+		@if $media == xxl
+		{
+			@media only screen and (min-width: #{$xxl}px) { @content; }
+		}
+		
+	}
+
+@mixin inline-block-hack() {
+	display:-moz-inline-stack;
+	display: inline-block !important;
+	*zoom:1;
+	*display:inline;
+}
+
+	
+@mixin position( $type:relative, $top:0, $left:0 ) {
+	position:$type;
+	top:$top;
+	left:$left;
+}
+	
+@mixin animation( $animation, $time, $loop ) {
+	-webkit-animation: $animation $time $loop;
+	   -moz-animation: $animation $time $loop;
+	     -o-animation: $animation $time $loop;
+	        animation: $animation $time $loop;
+}
+	
+	
+@mixin rotate($deg: 0){ /*, $m11: 0, $m12: 0, $m21: 0, $m22: 0*/
+	-moz-transform: rotate($deg + deg);
+	-o-transform: rotate($deg + deg);
+	-webkit-transform: rotate($deg + deg);	
+	/*-ms-transform: rotate($deg + deg)
+	transform: rotate($deg + deg)
+	filter: progid:DXImageTransform.Microsoft.Matrix(M11=#{$m11}, M12=#{$m12}, M21=#{$m21}, M22=#{$m22}, sizingMethod='auto expand');
+	zoom: 1*/
+}
+
+/*Vendor prefixed*/
+@mixin box-sizing ($box: content-box){
+	$value: $box;
+    @include build-prefix('box-sizing', $value);
+}
+
+@mixin border-radius ( $bordertl , $bordertr , $borderbr , $borderbl ){
+	$value : $bordertl $bordertr $borderbr $borderbl;
+	@include build-prefix('border-radius', $value);
+}
+
+
+@mixin opacity($ieOpac,$otherOpac){
+  filter: alpha(opacity=$ieOpac); /* internet explorer */  
+  -khtml-opacity: $otherOpac;      /* khtml, old safari */  
+  -moz-opacity: $otherOpac;       /* mozilla, netscape */  
+  opacity: $otherOpac;           /* fx, safari, opera */ 
+}
+
+@mixin borderBox(){
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+
+@mixin textShadow($xoffset,$yoffset,$blur,$color){
+  text-shadow: $xoffset $yoffset $blur $color;
+  filter: dropshadow(color=$color, offx=$xoffset, offy=$yoffset);
+}
+
+@mixin shadowBox($shadH,$shadV,$shadSpread,$shadColor){
+  -webkit-box-shadow: ($shadH + px ) ($shadV + px) ($shadSpread + px) $shadColor;
+  -moz-box-shadow: ($shadH + px ) ($shadV + px) ($shadSpread + px) $shadColor; 
+  box-shadow: ($shadH + px ) ($shadV + px) ($shadSpread + px) $shadColor;
+  //box-shadow: 0px 1px 5px $shadColor;
+}
+
+@mixin transitionAll(){
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+@mixin transitionBackground(){
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  -ms-transition: background 0.3s ease-in-out;
+  -o-transition: background 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out;
+}
+
+@mixin transitionColor(){
+  -webkit-transition: color 0.3s ease-in-out;
+  -moz-transition: color 0.3s ease-in-out;
+  -ms-transition: color 0.3s ease-in-out;
+  -o-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+}
+
+.fluidimg {
+	height: auto;
+	max-width: 100%;
+}
+

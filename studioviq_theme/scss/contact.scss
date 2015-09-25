@@ -1,0 +1,73 @@
+@import "variables.scss";
+
+section#contact-wrap {
+	img { 
+		height: auto;
+		max-width: 100%;
+	}
+}
+
+
+
+
+#we-can-help {
+	padding-bottom: 80px;
+	
+	ul.also-help-with {
+		margin: 0 auto;
+		//width: 60%;
+		li {
+			@include inline-block-hack();
+			//float: left;
+			width: 30%;
+			padding: 20px;
+			text-align: center;
+			@include respond(s){
+				width: 100%;
+				
+				.help-title {
+					margin: 10% 0;
+				}
+			}
+		}
+	}
+	
+	.colBlock {
+		.row {
+			margin-bottom: 40px;
+		}
+	}
+		
+	img { 
+		height: auto;
+		max-width: 100%;
+	}
+	
+	.help-title {
+		display: block;
+		font-family: $font-family-opensans;
+		font-weight: 300;
+		margin: 22% 0;
+		font-size: 21px;
+		color: #222;
+	}
+	
+} // end also-help-with
+
+
+a#gmaproute {
+	position: relative;
+	display: block;
+	
+	#dropDiv {
+		position: absolute;
+		width: 45px;
+		background: url("img/poi.png") repeat scroll 0 0 transparent;
+		height: 40px;
+		//display: none;
+		//top: 0;
+		display: block; 
+		left: 60%; 
+		top: 22%;
+	}
+}
